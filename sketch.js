@@ -1,66 +1,84 @@
 
-let value = 0;
-let img;
+var xoffset = 50;
+var yoffset = 50;
 
-function preload() {
-  img = loadImage('assets/superMarioClouds_0.png');
-}
+var secs = 0;
+var mins = 0;
+var secD = .08;
+var minD = .09;
 
 function setup() {
-  createCanvas(1000,1000);
-  background(83,140,232);
-  // Top-left corner of the img is at (0, 0)
-  // Width and height are the img's original width and height
-  image(img, 0, 0,mouseX,mouseY);
-  //image(image,mouseX,mouseY,80,80);
+  createCanvas(400, 400);
+  //noLoop();
+}
+function draw() {
+  background(50);
 
-  function draw() {
+  var s = second();
+  var m = minute();
 
-    // fill(mouseX,mouseY,100,100);
-    // rect(value, height/2,20,height);
-    image(image,0,0,mouseX,mouseY);
 
-    }
-if x < width
-x++;
-else
-x = 0;
-  // If you want to scale the image to 100 x 100 pixels
-  // image(img, 0, 0, 100, 100);
+ 
+push(); // seconds hand
+ 
+  translate(width/2,height/2) 
+  fill(255,0,0);
+  line(0,0,10,10);  
+  rotate(radians(s*6)); 
+  translate(10,10); 
+  scale(2,2);
+  drawhead();
+pop();
 
-  // If you want to scale image by 50%
-  // image(img, 10, 10, img.width/2, img.height/2);
+push(); // hour hand
+ 
+  translate(width/2,height/2) 
+  fill(255,0,0);
+  line(0,0,25,25);  
+  rotate(radians(s*0.1)); 
+  translate(10,10); 
+  scale(1.5,1.5);
+  drawhead();
+pop();
+
+push(); // min hand
+ 
+  translate(width/2,height/2) 
+  fill(255,0,0);
+  line(0,0,75,75);  
+  rotate(radians(s*0.4)); 
+  translate(10,10); 
+  scale(1.5,1.5);
+  drawhead();
+pop();
+
+push();
+
+  translate(width/2,height/2) 
+  fill(255,255,0);
+  ellipse(0,0,15,15);  
+  rotate(radians(m*6)); 
+  translate(100,40); 
+  scale(1.5,1.5);
+  drawhead();
+pop();
+
+
+
+secs+= secD;
+mins+= minD;
+fill(255);
+
+text('Current second: \n' + s, 5, 50);
+  text('Current minute: \n' + m, 5, 90);
+
 }
 
-// function setup() {
-// 	createCanvas(500, 500);
-// 	// background is very light grey
-// 	background(230);
-// }
-//
-// function draw() {
-//
-// 	// create bright green ellipse with white stroke
-// 	// fill is bright green
-// 	fill(0, 255, 0);
-// 	// stroke is white
-// 	stroke(255, 255, 255);
-// 	strokeWeight(1); // reset to default
-// 	ellipse(100, 100, 25, 25);
-//
-// 	// make transparent rectangle
-// 	// a color fill with a fourth argument will define transparency
-// 	// fill has about 50% transparency
-// 	fill(255, 0, 25, 25);
-// 	noStroke();
-// 	rect(100, 100, 100, 80);
-//
-// 	// stroke weight will set thickness of line
-// 	stroke(100, 200, mouseY, mouseX);
-// 	strokeWeight(5);
-// 	line(25, 25, mouseX, mouseY);
-//
-// 	fill(0,255,0);
-// 	noStroke();
-// 	triangle(75,85,100,25,40,58);
-// }
+
+function drawhead() {
+  noFill();
+  stroke(255);
+  strokeWeight(8);
+  line(0,0, 25, 25);
+ 
+}
