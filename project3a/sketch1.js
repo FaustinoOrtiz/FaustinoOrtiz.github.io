@@ -7,11 +7,11 @@ var secD = .08;
 var minD = .09;
 
 function setup() {
-  createCanvas(500, 500);
+  createCanvas(200, 200);
   //noLoop();
 }
 function draw() {
-  background(50);
+  //background(50);
 
   var s = second();
   var m = minute();
