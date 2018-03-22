@@ -11,7 +11,7 @@ function setup() {
   //noLoop();
 }
 function draw() {
-  //background(50);
+  background(50);
 
   var s = second();
   var m = minute();
