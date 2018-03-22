@@ -7,7 +7,7 @@ var secD = .08;
 var minD = .09;
 
 function setup() {
-  createCanvas(200, 200);
+  createCanvas(400, 400);
   //noLoop();
 }
 function draw() {
