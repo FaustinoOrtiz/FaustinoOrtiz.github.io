@@ -7,13 +7,13 @@ function mousePressed() {
   // push an object with the mouse position and a random color
   // to the rectangles array
   ellipses.push({posX: mouseX, posY: mouseY, color: random(255)})
-  text("this is a test", 75, 100);
+  //text("this is a test", 75, 100);
   console.log(ellipses);
 }
 
 function draw() {
   background(random(255), 125, 255);
-
+  text("this is a test", 75, 100);
   // draw all rectangles every draw loop
   for (let i = 0; i < ellipses.length; i++) {
     fill(ellipses[i].color);
