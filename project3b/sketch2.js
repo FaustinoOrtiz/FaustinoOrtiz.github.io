@@ -17,6 +17,7 @@ function draw() {
   for (let i = 0; i < ellipses.length; i++) {
     fill(ellipses[i].color);
     ellipse(ellipses[i].posX, ellipses[i].posY, 100, 100);
+    text("hopes",ellipses[i].posX, ellipses[i].posY, 100, 100);
     // make them fall by changing their y position every loop
     ellipses[i].posY ++;
 //     if (rectangles[i].posY >= height) {
