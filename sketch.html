@@ -11,13 +11,13 @@
 		</style>
 	</head>
 	<body>
-		
+
 		<script src="http://threejsplaygnd.brangerbriz.net/js/three.min.js"></script>
 		<script src="http://threejsplaygnd.brangerbriz.net/js/Detector.js"></script>
 		<script>
 
 			if ( ! Detector.webgl ) Detector.addGetWebGLMessage();
-			
+
 			var camera, scene, renderer;
 			var geometry, material, mesh;
 
@@ -32,8 +32,8 @@
 				camera.position.z = 500;
 
 				scene = new THREE.Scene();
-				
-				
+
+
 				// paste your code from the geometryGUI here
 
 
@@ -42,8 +42,51 @@
 			function draw() {
 
 				requestAnimationFrame( draw );
-				
-				// experiment with code from the snippets menu here
+
+			
+
+					for ( var i = 0; i < 300; i ++ ) {
+						// your mesh code (from the geometry GUI) goes here
+					}
+
+					/* --------------------------------------
+			       		cube geometry EXAMPLE bleow,
+			       		NOTICE: he color property is set to 'Math.random() * 0xffffff'
+			       		        this will generate a random color for each of the 500 cubes
+			        	NOTICE: the mesh's position and rotation are also set to random
+			        	        variables, because otherwise the cubes would all render in
+			        	        the same spot.
+			        	-------------------------------------- */
+
+					for ( var i = 0; i < 300; i ++ ) {
+						geometry = new THREE.CubeGeometry( 25, 25, 25 );
+						material = new THREE.MeshBasicMaterial( { color: Math.random()*0xffffff } );
+						mesh = new THREE.Mesh( geometry, material);
+						mesh.position.x = Math.random() * 1000 - 500;
+						mesh.position.y = Math.random() * 1000 - 500;
+						mesh.position.z = Math.random() * 1000 - 500;
+						mesh.rotation.x = Math.random() * 2 * Math.PI;
+						mesh.rotation.y = Math.random() * 2 * Math.PI;
+						mesh.rotation.z = Math.random() * 2 * Math.PI;
+						scene.add( mesh );
+					}
+
+					/* --------------------------------------
+			       		try moving the camera around the scene
+			       		place the following into your draw()
+			        	-------------------------------------- */
+
+					camera.position.z = Math.sin( Date.now() * 0.002 ) * 500;
+					camera.position.y = Math.sin( Date.now() * 0.002 ) * 300;
+					camera.lookAt(mesh.position);
+
+					/* --------------------------------------
+			       		try also leaving trails
+			       		replace the 'renderer = new ...' on line 27
+					in the setup() function, with the code below
+			       		-------------------------------------- */
+			       		renderer = new THREE.WebGLRenderer( { preserveDrawingBuffer: true } );
+					renderer.autoClearColor = false;
 
 				renderer.render( scene, camera );
 				camera.position.x = Math.sin( Date.now() * 0.002 ) * 50;
@@ -54,6 +97,6 @@
 			draw();
 
 		</script>
-		
+
 	</body>
 </html>
