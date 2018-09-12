@@ -171,14 +171,16 @@
 
         ///////////////////////////////////////////////////////////
         // add a static cube
-        geometry = new THREE.SphereGeometry(150, 100, 100);
-  material = new THREE.MeshNormalMaterial({shading: THREE.FlatShading});
-  mesh = new THREE.Mesh(geometry, material);
-  scene.add(mesh);
+        geometry = new THREE.CubeGeometry(1,1,1);
+        material = new THREE.MeshNormalMaterial({
+            transparent : true,
+            opacity: 0.5,
+            side: THREE.DoubleSide
         });
         mesh = new THREE.Mesh( geometry, material );
         mesh.position.y	= geometry.parameters.height/2
         arWorldRoot.add(mesh);
+        
         // end cube code
         ///////////////////////////////////////////////////////////
 
