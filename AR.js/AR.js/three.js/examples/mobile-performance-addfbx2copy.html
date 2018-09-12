@@ -231,10 +231,8 @@ scene.add(mesh);
 
 
         ///////////////////////////////////////////////////////////
-        geometry = new THREE.SphereGeometry(150, 100, 100);
-  material = new THREE.MeshNormalMaterial({shading: THREE.FlatShading});
-  mesh = new THREE.Mesh(geometry, material);
-  scene.add(mesh);
+         //add obj model (static)
+         // obj texture
 
          var manager = new THREE.LoadingManager();
          manager.onProgress = function ( item, loaded, total ) {
