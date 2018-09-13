@@ -199,6 +199,18 @@
         mesh = new THREE.Mesh(geometry, material);
         scene.add(mesh);
 
+        geometry = new THREE.CubeGeometry(200, 200, 200);
+        material = new THREE.MeshNormalMaterial({shading: THREE.FlatShading});
+        mesh = new THREE.Mesh(geometry, material);
+        scene.add(mesh);
+
+        geometry = new THREE.CylinderGeometry(100, 100, 200, 50, 50, false);
+        material = new THREE.MeshNormalMaterial({shading: THREE.FlatShading});
+        mesh = new THREE.Mesh(geometry, material);
+        scene.add(mesh);
+
+
+
         ///////////////////////////////////////////////////////////
 //        // add a taurus with rotation animation
 //        geometry = new THREE.TorusKnotGeometry(0.3,0.1,64,16);
